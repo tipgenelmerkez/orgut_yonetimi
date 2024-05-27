@@ -1,0 +1,202 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* uye_yonetimi
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-16 23:19+0000\n"
+"PO-Revision-Date: 2024-05-16 23:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: uye_yonetimi
+#: model:ir.actions.act_window,name:uye_yonetimi.action_tip_region
+#: model:ir.ui.menu,name:uye_yonetimi.menu_bolgeler
+msgid "Bölgeler"
+msgstr "Bölgeler"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_res_partner__tip_city_id
+#: model:ir.model.fields,field_description:uye_yonetimi.field_res_users__tip_city_id
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_city__name
+msgid "City"
+msgstr "İlçe"
+
+#. module: uye_yonetimi
+#: model:ir.model,name:uye_yonetimi.model_res_partner
+msgid "Contact"
+msgstr "Kontak"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_region__name
+msgid "Region"
+msgstr "Bölge"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_res_partner__tip_country_id
+#: model:ir.model.fields,field_description:uye_yonetimi.field_res_users__tip_country_id
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_city__country
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_region__country
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_state__country
+msgid "Country"
+msgstr "Ülke"
+
+#. module: uye_yonetimi
+#: model_terms:ir.actions.act_window,help:uye_yonetimi.action_tip_region
+msgid "Create your first Bölge!"
+msgstr "İlk Bölge'yi Oluşturun"
+
+#. module: uye_yonetimi
+#: model_terms:ir.actions.act_window,help:uye_yonetimi.action_tip_city
+msgid "Create your first City!"
+msgstr "ilk İlçe'yi oluşturun"
+
+#. module: uye_yonetimi
+#: model_terms:ir.actions.act_window,help:uye_yonetimi.action_tip_state
+msgid "Create your first State!"
+msgstr "İlk İl'i oluşturun"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_city__create_uid
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_region__create_uid
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_state__create_uid
+#: model:ir.model.fields,field_description:uye_yonetimi.field_uye_yonetimi__create_uid
+msgid "Created by"
+msgstr "Oluşturan"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_city__create_date
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_region__create_date
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_state__create_date
+#: model:ir.model.fields,field_description:uye_yonetimi.field_uye_yonetimi__create_date
+msgid "Created on"
+msgstr "Oluşturulma Zamanı"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_city__display_name
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_region__display_name
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_state__display_name
+#: model:ir.model.fields,field_description:uye_yonetimi.field_uye_yonetimi__display_name
+msgid "Display Name"
+msgstr "Görünen Ad"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_city__id
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_region__id
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_state__id
+#: model:ir.model.fields,field_description:uye_yonetimi.field_uye_yonetimi__id
+msgid "ID"
+msgstr "ID"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_city____last_update
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_region____last_update
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_state____last_update
+#: model:ir.model.fields,field_description:uye_yonetimi.field_uye_yonetimi____last_update
+msgid "Last Modified on"
+msgstr "Son Değiştirilme Zamanı"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_city__write_uid
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_region__write_uid
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_state__write_uid
+#: model:ir.model.fields,field_description:uye_yonetimi.field_uye_yonetimi__write_uid
+msgid "Last Updated by"
+msgstr "Son Güncelleyen"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_city__write_date
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_region__write_date
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_state__write_date
+#: model:ir.model.fields,field_description:uye_yonetimi.field_uye_yonetimi__write_date
+msgid "Last Updated on"
+msgstr "Son Güncelleme Zamanı"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_uye_yonetimi__name
+msgid "Name"
+msgstr "Ad"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_res_partner__tip_region_id
+#: model:ir.model.fields,field_description:uye_yonetimi.field_res_users__tip_region_id
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_city__region
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_state__region
+msgid "Region"
+msgstr "Bölge"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_res_partner__tip_state_id
+#: model:ir.model.fields,field_description:uye_yonetimi.field_res_users__tip_state_id
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_city__state
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_state__name
+msgid "State"
+msgstr "İl"
+
+#. module: uye_yonetimi
+#: model:res.groups,name:uye_yonetimi.tip_bolge_sorumlusu
+msgid "Tip Bölge Sorumlusu"
+msgstr "Tip Bölge Sorumlusu"
+
+#. module: uye_yonetimi
+#: model:res.groups,name:uye_yonetimi.tip_il_sorumlusu
+msgid "Tip İl Sorumlusu"
+msgstr "Tip İl Sorumlusu"
+
+#. module: uye_yonetimi
+#: model:res.groups,name:uye_yonetimi.tip_ilce_sorumlusu
+msgid "Tip İlçe Sorumlusu"
+msgstr "Tip İlçe Sorumlusu"
+
+#. module: uye_yonetimi
+#: model:ir.model,name:uye_yonetimi.model_tip_city
+msgid "tip.city"
+msgstr "tip.city"
+
+#. module: uye_yonetimi
+#: model:ir.model,name:uye_yonetimi.model_tip_region
+msgid "tip.region"
+msgstr ""
+
+#. module: uye_yonetimi
+#: model:ir.model,name:uye_yonetimi.model_tip_state
+msgid "tip.state"
+msgstr ""
+
+#. module: uye_yonetimi
+#: model:ir.model,name:uye_yonetimi.model_uye_yonetimi
+msgid "uye.yonetimi"
+msgstr ""
+
+#. module: uye_yonetimi
+#: model:ir.ui.menu,name:uye_yonetimi.menu_uye_yonetimi_root
+msgid "Üye Yönetimi"
+msgstr "Üye Yönetimi"
+
+#. module: uye_yonetimi
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_city__member_line_ids
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_region__member_line_ids
+#: model:ir.model.fields,field_description:uye_yonetimi.field_tip_state__member_line_ids
+#: model_terms:ir.ui.view,arch_db:uye_yonetimi.view_tip_city_form
+#: model_terms:ir.ui.view,arch_db:uye_yonetimi.view_tip_region_form
+#: model_terms:ir.ui.view,arch_db:uye_yonetimi.view_tip_state_form
+msgid "Üyeler"
+msgstr "Üyeler"
+
+#. module: uye_yonetimi
+#: model:ir.actions.act_window,name:uye_yonetimi.action_tip_state
+#: model:ir.ui.menu,name:uye_yonetimi.menu_iller
+msgid "İller"
+msgstr "İller"
+
+#. module: uye_yonetimi
+#: model:ir.actions.act_window,name:uye_yonetimi.action_tip_city
+#: model:ir.ui.menu,name:uye_yonetimi.menu_ilceler
+msgid "İlçeler"
+msgstr "İlçeler"

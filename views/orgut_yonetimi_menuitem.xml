@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <menuitem id="menu_orgut_yonetimi_root"
+                  name="Örgüt Yönetimi"
+                  web_icon="orgut_yonetimi,static/description/icon.png"
+                  sequence="0"
+                  groups="orgut_yonetimi.orgut_ilce_sorumlusu"/>
+        <menuitem id="menu_bolgeler"
+                  name="Bölge Örgütleri"
+                  parent="menu_orgut_yonetimi_root"
+                  action="action_orgut_region"
+                  sequence="10"
+                  groups="orgut_yonetimi.orgut_bolge_sorumlusu"/>
+        <menuitem id="menu_iller"
+                  name="İl Örgütleri"
+                  parent="menu_orgut_yonetimi_root"
+                  action="action_orgut_state"
+                  sequence="20"
+                  groups="orgut_yonetimi.orgut_il_sorumlusu"/>
+        <menuitem id="menu_ilceler"
+                  name="İlçe Örgütleri"
+                  parent="menu_orgut_yonetimi_root"
+                  action="action_orgut_city"
+                  sequence="30"
+                  groups="orgut_yonetimi.orgut_ilce_sorumlusu"/>
+    </data>
+</odoo>

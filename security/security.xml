@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="orgut_bolge_sorumlusu" model="res.groups">
+            <field name="name">Orgut Bölge Sorumlusu</field>
+        </record>
+
+        <record id="orgut_il_sorumlusu" model="res.groups">
+            <field name="name">Orgut İl Sorumlusu</field>
+        </record>
+
+        <record id= "orgut_ilce_sorumlusu" model="res.groups">
+            <field name="name">Orgut İlçe Sorumlusu</field>
+        </record>
+
+
+        <!-- Admin'in tüm kontakları görmesini sağlayan kural -->
+        <record id="admin_res_partner_rule" model="ir.rule">
+            <field name="name">Admin All Contacts Access Rule</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+            <field ref="model_res_partner" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+<!--        Grupların kontakları görmesini sağlayan kurallar-->
+        <record id="orgut_region_rule_contact" model="ir.rule">
+            <field name="name">Orgut Region Contacts Rule</field>
+            <field ref="model_res_partner" name="model_id"/>
+            <field name="domain_force">['|', ('orgut_region_id', '=', False), ('orgut_region_id.member_line_ids', 'in', user.partner_id.ids)]</field>
+            <field name="groups" eval="[(4, ref('orgut_yonetimi.orgut_ilce_sorumlusu'))]"/>
+        </record>
+        <record id="orgut_state_rule_contact" model="ir.rule">
+            <field name="name">Orgut State Contacts Rule</field>
+            <field ref="model_res_partner" name="model_id"/>
+            <field name="domain_force">['|', '|', ('orgut_state_id', '=', False), ('orgut_state_id.member_line_ids', 'in', user.partner_id.ids), ('orgut_region_id.member_line_ids', 'in', user.partner_id.ids)]</field>
+            <field name="groups" eval="[(4, ref('orgut_yonetimi.orgut_ilce_sorumlusu'))]"/>
+        </record>
+        <record id="orgut_city_rule_contact" model="ir.rule">
+            <field name="name">Orgut City Contacts Rule</field>
+            <field ref="model_res_partner" name="model_id"/>
+            <field name="domain_force">['|', '|', '|', ('orgut_city_id', '=', False), ('orgut_city_id.member_line_ids', 'in', user.partner_id.ids), ('orgut_state_id.member_line_ids', 'in', user.partner_id.ids), ('orgut_region_id.member_line_ids', 'in', user.partner_id.ids)]</field>
+            <field name="groups" eval="[(4, ref('orgut_yonetimi.orgut_ilce_sorumlusu'))]"/>
+        </record>
+
+        <!-- Grupların kendi alt hiyerarşilerini de görmelerini sağlayan kurallar-->
+        <record id="orgut_region_rule_region" model="ir.rule">
+            <field name="name">Orgut Region Rule</field>
+            <field name="groups" eval="[(4, ref('orgut_yonetimi.orgut_ilce_sorumlusu'))]"/>
+            <field ref="model_orgut_region" name="model_id"/>
+            <field name="domain_force">[('member_line_ids','in', user.partner_id.ids)]</field>
+        </record>
+
+        <record id="orgut_state_rule_state" model="ir.rule">
+            <field name="name">Orgut State Rule</field>
+             <field name="groups" eval="[(4, ref('orgut_yonetimi.orgut_ilce_sorumlusu'))]"/>
+            <field ref="model_orgut_state" name="model_id"/>
+            <field name="domain_force">['|',('region.member_line_ids','in', user.partner_id.ids),('member_line_ids','in', user.partner_id.ids)]</field>
+        </record>
+
+        <record id="orgut_city_rule_city" model="ir.rule">
+            <field name="name">Orgut City Rule</field>
+             <field name="groups" eval="[(4, ref('orgut_yonetimi.orgut_ilce_sorumlusu'))]"/>
+            <field ref="model_orgut_city" name="model_id"/>
+            <field name="domain_force">['|','|',('state.member_line_ids','in', user.partner_id.ids),('region.member_line_ids','in', user.partner_id.ids),('member_line_ids','in', user.partner_id.ids)]</field>
+        </record>
+
+        <!-- İl yöneticisinin kendi bağlı olduğu region kayıtlarını görmesini sağlayan kural -->
+        <record id="orgut_region_rule_il_sorumlusu" model="ir.rule">
+            <field name="name">Orgut Region Rule for İl Sorumlusu</field>
+            <field name="groups" eval="[(4, ref('orgut_yonetimi.orgut_il_sorumlusu'))]"/>
+            <field ref="model_orgut_region" name="model_id"/>
+            <field name="domain_force">['|', ('id', 'in', user.partner_id.orgut_region_id.ids), ('id', '=', user.partner_id.orgut_region_id.id)]</field>
+        </record>
+
+        <!-- İl yöneticisinin kendi bağlı olduğu state kayıtlarını görmesini sağlayan kural -->
+        <record id="orgut_state_rule_il_sorumlusu" model="ir.rule">
+            <field name="name">Orgut State Rule for İl Sorumlusu</field>
+            <field name="groups" eval="[(4, ref('orgut_yonetimi.orgut_il_sorumlusu'))]"/>
+            <field ref="model_orgut_state" name="model_id"/>
+            <field name="domain_force">['|', ('id', 'in', user.partner_id.orgut_state_id.ids), ('id', '=', user.partner_id.orgut_state_id.id)]</field>
+        </record>
+
+        <!-- İlçe yöneticisinin kendi bağlı olduğu region kayıtlarını görmesini sağlayan kural -->
+        <record id="orgut_region_rule_ilce_sorumlusu" model="ir.rule">
+            <field name="name">Orgut Region Rule for İlçe Sorumlusu</field>
+            <field name="groups" eval="[(4, ref('orgut_yonetimi.orgut_ilce_sorumlusu'))]"/>
+            <field ref="model_orgut_region" name="model_id"/>
+            <field name="domain_force">[('id', '=', user.partner_id.orgut_region_id.id)]</field>
+        </record>
+
+        <!-- İlçe yöneticisinin kendi bağlı olduğu state kayıtlarını görmesini sağlayan kural -->
+        <record id="orgut_state_rule_ilce_sorumlusu" model="ir.rule">
+            <field name="name">Orgut State Rule for İlçe Sorumlusu</field>
+            <field name="groups" eval="[(4, ref('orgut_yonetimi.orgut_ilce_sorumlusu'))]"/>
+            <field ref="model_orgut_state" name="model_id"/>
+            <field name="domain_force">[('id', '=', user.partner_id.orgut_state_id.id)]</field>
+        </record>
+
+        <!-- İlçe yöneticisinin kendi bağlı olduğu city kayıtlarını görmesini sağlayan kural -->
+        <record id="orgut_city_rule_ilce_sorumlusu" model="ir.rule">
+            <field name="name">Orgut City Rule for İlçe Sorumlusu</field>
+            <field name="groups" eval="[(4, ref('orgut_yonetimi.orgut_ilce_sorumlusu'))]"/>
+            <field ref="model_orgut_city" name="model_id"/>
+            <field name="domain_force">[('id', '=', user.partner_id.orgut_city_id.id)]</field>
+        </record>
+
+        <!--        Admin'in tüm bölgeleri görmesini sağlayan kurallar-->
+        <record id="orgut_region_rule_admin" model="ir.rule">
+            <field name="name">Orgut Region Admin Rule</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+            <field ref="model_orgut_region" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+        <record id="orgut_state_rule_admin" model="ir.rule">
+            <field name="name">Orgut State Admin Rule</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+            <field ref="model_orgut_state" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+        <record id="orgut_city_rule_admin" model="ir.rule">
+            <field name="name">Orgut City Admin Rule</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+            <field ref="model_orgut_city" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+         <!-- Update existing access rights for res.city model -->
+        <record id="base_address_extended.access_res_city_group_user" model="ir.model.access">
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Update existing access rights for res.country.state model -->
+        <record id="base.access_res_country_state_group_user" model="ir.model.access">
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+
+    </data>
+</odoo>
