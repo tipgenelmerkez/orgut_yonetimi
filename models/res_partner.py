@@ -29,7 +29,7 @@ class ResPartner(models.Model):
     member_nufus_il = fields.Many2one('res.country.state', string='Nüfusa Kayıtlı İl')
     member_nufus_ilce = fields.Many2one('res.city', string='Nüfusa Kayıtlı İlçe')
 
-    is_employed = is_employed = fields.Selection(selection=[("sgk", "SGK"), ("bagkur", "BAĞKUR"),
+    is_employed = fields.Selection(selection=[("sgk", "SGK"), ("bagkur", "BAĞKUR"),
                                                             ("emekli", "EMEKLİ"), ("calismiyor", "ÇALIŞMIYOR")],
                                                  string="Çalışma Durumu", default="calismiyor")
     member_work_sector = fields.Selection(
