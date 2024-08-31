@@ -21,7 +21,7 @@
                 <field name='birthdate' />
                 <field name="blood_type_aob"/>
                 <field name="is_employed"/>
-                <field name="member_work_sector" invisible="is_employed=='false'"/>
+                <field name="member_work_sector" invisible="is_employed!='sgk'"/>
           </xpath>
 
 
