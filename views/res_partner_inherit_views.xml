@@ -20,6 +20,8 @@
                 <field name="member_nufus_ilce"/>
                 <field name='birthdate' />
                 <field name="blood_type_aob"/>
+                <field name="work_status"/>
+                <field name="member_work_sector" invisible="work_status!='sgk'"/>
           </xpath>
 
 

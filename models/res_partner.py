@@ -29,6 +29,21 @@ class ResPartner(models.Model):
     member_nufus_il = fields.Many2one('res.country.state', string='Nüfusa Kayıtlı İl')
     member_nufus_ilce = fields.Many2one('res.city', string='Nüfusa Kayıtlı İlçe')
 
+    work_status = fields.Selection(selection=[("sgk", "SGK"), ("bagkur", "BAĞKUR"),
+                                                            ("emekli", "EMEKLİ"), ("calismiyor", "ÇALIŞMIYOR")],
+                                                 string="Çalışma Durumu", required=True)
+    member_work_sector = fields.Selection(
+        selection=[("1", "1-)Avcılık, Balıkçılık, Tarım ve Ormancılık"), ("2", "2-)Gıda Sanayi"),
+                   ("3", "3-)Madencilik ve Taş Ocakları"), ("4", "4-)Petrol Kimya, Lastik, Plastik ve İlaç"),
+                   ("5", "5-)Dokuma, Hazır Giyim ve Deri"), ("6", "6-)Ağaç ve Kâğıt"), ("7", "7-)İletişim"),
+                   ("8", "8-)Basın, Yayın ve Gazetecilik"), ("9", "9-)Banka, Finans ve Sigorta"),
+                   ("10", "10-)Ticaret, Büro, Eğitim ve Güzel Sanatlar"), ("11", "11-)Çimento, Toprak ve Cam"),
+                   ("12", "12-)Metal"), ("13", "13-)İnşaat"), ("14", "14-)Enerji"), ("15", "15-)Taşımacılık"),
+                   ("16", "16-)Gemi Yapımı ve Deniz Taşımacılığı, Ardiye ve Antrepoculuk"),
+                   ("17", "17-)Sağlık ve Sosyal Hizmetler"), ("18", "18-)Konaklama ve Eğlence İşleri"),
+                   ("19", "19-)Savunma ve Güvenlik"), ("20", "20-)Genel İşler")
+                   ], string="İş Kolu")
+
 
     @api.onchange('user_id')
     def _onchange_user(self):
@@ -57,4 +72,8 @@ class ResPartner(models.Model):
     @api.onchange('orgut_state_id')
     def _onchange_orgut_state_id(self):
         self.orgut_city_id = False
+
+    @api.onchange('is_employed')
+    def _onchange_is_employed(self):
+        self.member_work_sector = False
 
