@@ -20,7 +20,6 @@ class OrgutState(models.Model):
     member_line_ids = fields.Many2many(
         'res.partner',
         string='Yöneticiler',
-        domain=[('id', '!=', 3)],  # Administrator partner ID'sini filtrele
         track_visibility='onchange',
     )
 
